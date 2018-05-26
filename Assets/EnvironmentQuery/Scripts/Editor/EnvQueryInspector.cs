@@ -75,6 +75,7 @@ public class EnvQueryInspector : Editor
 			menu.AddItem(new GUIContent ("Distance"), false, AddEnvQueryTestHandler, "Distance");
 			menu.AddItem(new GUIContent ("Dot"), false, AddEnvQueryTestHandler, "Dot");
 			menu.AddItem(new GUIContent ("PathFinding"), false, AddEnvQueryTestHandler, "PathFinding");
+			menu.AddItem(new GUIContent ("Trace"), false, AddEnvQueryTestHandler, "Trace");
 			menu.DropDown(buttonRect);
 		};
 	}
@@ -109,6 +110,15 @@ public class EnvQueryInspector : Editor
 
 			SerializedProperty element = reorderableTestList.serializedProperty.GetArrayElementAtIndex(index);
 			element.objectReferenceValue = ScriptableObject.CreateInstance<EnvQueryTestPathFinding>();
+		}
+		else if(testType == "Trace")
+		{
+			int index = reorderableTestList.serializedProperty.arraySize;
+			reorderableTestList.serializedProperty.arraySize++;
+			reorderableTestList.index = index;
+
+			SerializedProperty element = reorderableTestList.serializedProperty.GetArrayElementAtIndex(index);
+			element.objectReferenceValue = ScriptableObject.CreateInstance<EnvQueryTestTrace>();
 		}
 
 		serializedObject.ApplyModifiedProperties();
