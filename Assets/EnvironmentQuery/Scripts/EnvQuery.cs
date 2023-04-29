@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using NoAlloq;
 
 /**
  * Environment Query Instance
@@ -25,6 +24,7 @@ public class EnvQuery : MonoBehaviour
 	private GameObject querier;
 	private EnvQueryGenerator generator;
 	private List<EnvQueryItem> envQueryItems;
+	private List<EnvQueryItem> envQueryItemsBacking;
 
 	void Start()
 	{
@@ -54,6 +54,8 @@ public class EnvQuery : MonoBehaviour
 		{
 			envQueryItems = new List<EnvQueryItem>();
 		}
+
+		envQueryItemsBacking = envQueryItems.GetRange(0, envQueryItems.Count);
 	}
 
 	void Update()
@@ -82,7 +84,11 @@ public class EnvQuery : MonoBehaviour
 	private void FinalizeQuery()
 	{
 		NormalizeScore();
-		BestResult = envQueryItems.Where(x => x.IsValid).OrderByDescending(x => x.Score).FirstOrDefault();
+		BestResult = envQueryItems
+						.AsSpan()
+						.Where(x => x.IsValid)
+						.OrderByDescending(envQueryItemsBacking.AsSpan(), x => x.Score)
+						.FirstOrDefault();
 	}
 
 	private void NormalizeScore()
