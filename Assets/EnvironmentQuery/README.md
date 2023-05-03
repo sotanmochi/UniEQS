@@ -4,9 +4,9 @@
 Unity用にEQS(Environment Query System)を実装してみた。Unreal Engine 4のソースコードを参考にしながら実装した。  
 Youtube: [Environment Query for Unity](https://www.youtube.com/watch?v=TfslR2Iav30)
 
-<img src="../../External/ReadMeImages/EnvironmentQueryForUnity01.png" width="50%">
-<img src="../../External/ReadMeImages/EnvironmentQueryForUnity02.png" width="50%">
-<img src="../../External/ReadMeImages/EnvironmentQueryForUnity03.png" width="50%">
+<img src="Images/EnvironmentQueryForUnity01.png" width="50%">
+<img src="Images/EnvironmentQueryForUnity02.png" width="50%">
+<img src="Images/EnvironmentQueryForUnity03.png" width="50%">
 
 ## EQSについての参考情報
 - [キャラクターの人工知能のための戦術位置解析システム (CEDiL)](http://cedil.cesa.or.jp/cedil_sessions/view/1760)
