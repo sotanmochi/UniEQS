@@ -1,0 +1,19 @@
+{
+    "name": "jp.sotanmochi.unieqs",
+    "displayName": "UniEQS",
+    "description": "Environment Query System (EQS) for Unity",
+    "version": "1.0.0-pre.1",
+    "unity": "2021.3",
+    "license": "MIT",
+    "author": { "name": "Soichiro Sugimoto" },
+    "dependencies": {
+        "com.unity.burst": "1.6.6",
+        "com.unity.collections": "1.4.0"
+    },
+    "samples": [
+        {
+            "displayName": "PerformanceComparison",
+            "path": "Samples~/PerformanceComparison"
+        }
+    ]
+}
